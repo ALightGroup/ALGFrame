@@ -1,0 +1,66 @@
+plugins {
+  id 'com.android.library'
+  id 'org.jetbrains.kotlin.android'
+  id 'maven-publish'
+}
+
+android {
+  namespace 'com.alg.meta.plugin.metaframe'
+  compileSdk libs.versions.compilesdk.get().toInteger()
+
+  defaultConfig {
+    minSdk libs.versions.minSdk.get().toInteger()
+    targetSdk libs.versions.targetsdk.get().toInteger()
+
+    testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    consumerProguardFiles "consumer-rules.pro"
+    vectorDrawables {
+      useSupportLibrary true
+    }
+  }
+
+  buildTypes {
+    release {
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+    }
+  }
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
+  kotlinOptions {
+    jvmTarget = '1.8'
+  }
+  buildFeatures {
+    compose true
+  }
+  composeOptions {
+    kotlinCompilerExtensionVersion '1.1.1'
+  }
+  packagingOptions {
+    resources {
+      excludes += '/META-INF/{AL2.0,LGPL2.1}'
+    }
+  }
+}
+
+publishing {
+  publications {
+    maven(MavenPublication) {
+      groupId = 'com.alg.plugin'
+      artifactId = 'frame'
+      version = '0.0.1'
+//      from components.
+    }
+  }
+}
+
+dependencies {
+  implementation(libs.junit)
+  implementation(libs.bundles.android.test)
+  implementation(libs.android.ktx)
+  implementation(libs.appcompat)
+  implementation(libs.bundles.compose)
+  implementation(libs.bundles.lifecycle)
+}
