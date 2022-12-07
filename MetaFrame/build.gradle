@@ -43,6 +43,7 @@ android {
       excludes += '/META-INF/{AL2.0,LGPL2.1}'
     }
   }
+  resourcePrefix "frame_"
 }
 
 publishing {
@@ -57,10 +58,8 @@ publishing {
 }
 
 dependencies {
-  implementation(libs.junit)
-  implementation(libs.bundles.android.test)
-  implementation(libs.android.ktx)
-  implementation(libs.appcompat)
-  implementation(libs.bundles.compose)
-  implementation(libs.bundles.lifecycle)
+  testImplementation(libs.junit)
+  androidTestImplementation(libs.bundles.android.test)
+  //  ktx, appcompat, compose, lifecycle
+  implementation(libs.bundles.alg)
 }
