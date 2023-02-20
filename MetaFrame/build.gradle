@@ -62,5 +62,5 @@ dependencies {
   androidTestImplementation(libs.bundles.android.test)
   //  ktx, appcompat, compose, lifecycle
   implementation(libs.bundles.alg)
-  implementation(libs.android.ktx)
+  implementation(libs.appcompat)
 }
