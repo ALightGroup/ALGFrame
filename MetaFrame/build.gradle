@@ -6,11 +6,11 @@ plugins {
 
 android {
   namespace 'com.alg.meta.plugin.metaframe'
-  compileSdkPreview libs.versions.compilesdk.get().toString()
+  compileSdkVersion libs.versions.compilesdk.get().toInteger()
 
   defaultConfig {
     minSdk libs.versions.minSdk.get().toInteger()
-    targetSdkPreview libs.versions.targetsdk.get().toString()
+    targetSdk libs.versions.targetsdk.get().toInteger()
 
     testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     consumerProguardFiles "consumer-rules.pro"
