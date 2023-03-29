@@ -6,11 +6,11 @@ plugins {
 
 android {
   namespace 'com.alg.meta.plugin.metaframe'
-  compileSdk libs.versions.compilesdk.get().toInteger()
+  compileSdkPreview libs.versions.compilesdk.get().toString()
 
   defaultConfig {
     minSdk libs.versions.minSdk.get().toInteger()
-    targetSdk libs.versions.targetsdk.get().toInteger()
+    targetSdkPreview libs.versions.targetsdk.get().toString()
 
     testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     consumerProguardFiles "consumer-rules.pro"
@@ -36,7 +36,7 @@ android {
     compose true
   }
   composeOptions {
-    kotlinCompilerExtensionVersion '1.1.1'
+    kotlinCompilerExtensionVersion libs.versions.kotlinCompilerExtensionVersion.get()
   }
   packagingOptions {
     resources {
@@ -63,4 +63,6 @@ dependencies {
   //  ktx, appcompat, compose, lifecycle
   implementation(libs.bundles.alg)
   implementation(libs.appcompat)
+  implementation(libs.bundles.compose)
+  implementation(libs.material)
 }
